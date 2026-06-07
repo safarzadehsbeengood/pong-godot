@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://cumb58pfew47m"]
+
+[ext_resource type="PackedScene" uid="uid://d4j7xe1qi3tfu" path="res://Paddle.tscn" id="1_2gblj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3nohc"]
+size = Vector2(674, 20)
+
+[node name="Root" type="Control" unique_id=897050262]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="." unique_id=1132396450]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Separator" type="ColorRect" parent="." unique_id=72022571]
+custom_minimum_size = Vector2(2, 0)
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Top" type="StaticBody2D" parent="." unique_id=838659316]
+position = Vector2(-15, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Top" unique_id=885542618]
+position = Vector2(337, 0)
+shape = SubResource("RectangleShape2D_3nohc")
+
+[node name="Polygon2D" type="Polygon2D" parent="Top" unique_id=1674729861]
+polygon = PackedVector2Array(0, -11, 177.1599, -10.999998, 673, -11, 674, 9, 0, 9)
+
+[node name="Bottom" type="StaticBody2D" parent="." unique_id=1964268299]
+position = Vector2(-15, 400)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom" unique_id=714734265]
+position = Vector2(337, 0)
+shape = SubResource("RectangleShape2D_3nohc")
+
+[node name="Polygon2D" type="Polygon2D" parent="Bottom" unique_id=1534544436]
+polygon = PackedVector2Array(0, -11, 177.1599, -10.999998, 673, -11, 674, 9, 0, 10)
+
+[node name="Paddle-0" parent="." unique_id=758504019 instance=ExtResource("1_2gblj")]
+position = Vector2(40, 199)
+
+[node name="Paddle-1" parent="." unique_id=1359724467 instance=ExtResource("1_2gblj")]
+position = Vector2(600, 196)
+player_id = 1
