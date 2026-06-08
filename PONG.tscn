@@ -64,11 +64,12 @@ position = Vector2(52, 324)
 scale = Vector2(2, 2)
 score_label = NodePath("../HBoxContainer/Score-0")
 
-[node name="Paddle-1" parent="." unique_id=1359724467 node_paths=PackedStringArray("score_label") instance=ExtResource("1_2gblj")]
+[node name="Paddle-1" parent="." unique_id=1359724467 node_paths=PackedStringArray("score_label", "ball") instance=ExtResource("1_2gblj")]
 position = Vector2(1100, 324)
 scale = Vector2(2, 2)
 player_id = 1
 score_label = NodePath("../HBoxContainer/Score-1")
+ball = NodePath("../Ball")
 
 [node name="Ball" type="CharacterBody2D" parent="." unique_id=572866053 node_paths=PackedStringArray("paddle_0", "paddle_1")]
 position = Vector2(576, 324)

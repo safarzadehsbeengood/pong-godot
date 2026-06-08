@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED : float = 400.0
+const SPEED : float = 500.0
 
 @export var paddle_0 : Node2D
 @export var paddle_1 : Node2D
