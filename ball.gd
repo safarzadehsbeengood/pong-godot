@@ -2,6 +2,9 @@ extends CharacterBody2D
 
 const SPEED : float = 400.0
 
+@export var paddle_0 : Node2D
+@export var paddle_1 : Node2D
+
 func _ready() -> void:
 	initialize()
 
@@ -16,7 +19,12 @@ func initialize():
 	velocity = Vector2(cos(angle), sin(angle)).normalized() * SPEED
 	position = get_viewport_rect().size / 2.0
 
-
 func _on_screen_exited() -> void:
 	await get_tree().create_timer(1.0).timeout
+	var vw = get_viewport_rect().size[0]
+	var ball_x = position[0]
+	if ball_x < 0:
+		paddle_1.increment_score()
+	else:
+		paddle_0.increment_score()
 	initialize()

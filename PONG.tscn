@@ -57,20 +57,25 @@ position = Vector2(337, 0)
 shape = SubResource("RectangleShape2D_3nohc")
 
 [node name="Polygon2D" type="Polygon2D" parent="Bottom" unique_id=1534544436]
-polygon = PackedVector2Array(0, -11, 177.1599, -10.999998, 673, -11, 674, 9, 0, 10)
+polygon = PackedVector2Array(0, -11, 177.1599, -10.999998, 673.8292, -10, 674, 9, 0, 10)
 
-[node name="Paddle-0" parent="." unique_id=758504019 instance=ExtResource("1_2gblj")]
+[node name="Paddle-0" parent="." unique_id=758504019 node_paths=PackedStringArray("score_label") instance=ExtResource("1_2gblj")]
 position = Vector2(52, 324)
-scale = Vector2(1, 1.65)
+scale = Vector2(2, 2)
+score_label = NodePath("../HBoxContainer/Score-0")
 
-[node name="Paddle-1" parent="." unique_id=1359724467 instance=ExtResource("1_2gblj")]
+[node name="Paddle-1" parent="." unique_id=1359724467 node_paths=PackedStringArray("score_label") instance=ExtResource("1_2gblj")]
 position = Vector2(1100, 324)
-scale = Vector2(1, 1.65)
+scale = Vector2(2, 2)
 player_id = 1
+score_label = NodePath("../HBoxContainer/Score-1")
 
-[node name="Ball" type="CharacterBody2D" parent="." unique_id=572866053]
+[node name="Ball" type="CharacterBody2D" parent="." unique_id=572866053 node_paths=PackedStringArray("paddle_0", "paddle_1")]
 position = Vector2(576, 324)
+scale = Vector2(1.45, 1.45)
 script = ExtResource("2_auim7")
+paddle_0 = NodePath("../Paddle-0")
+paddle_1 = NodePath("../Paddle-1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ball" unique_id=2079282902]
 scale = Vector2(0.37, 0.37)
@@ -84,18 +89,25 @@ polygon = PackedVector2Array(316, 192, 324, 192, 324, 200, 316, 200)
 position = Vector2(0, -1)
 rect = Rect2(-4, -3, 8, 8)
 
-[node name="Label" type="Label" parent="." unique_id=806268954]
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=681514534]
 layout_mode = 0
-offset_left = 889.0
-offset_top = 28.0
-offset_right = 929.0
-offset_bottom = 51.0
+offset_top = 32.0
+offset_right = 1152.0
+offset_bottom = 55.0
+alignment = 1
 
-[node name="Label2" type="Label" parent="." unique_id=619124582]
-layout_mode = 0
-offset_left = 254.0
-offset_top = 36.0
-offset_right = 294.0
-offset_bottom = 59.0
+[node name="Score-0" type="Label" parent="HBoxContainer" unique_id=619124582]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 20
+text = "0"
+horizontal_alignment = 1
+
+[node name="Score-1" type="Label" parent="HBoxContainer" unique_id=806268954]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 20
+text = "0"
+horizontal_alignment = 1
 
 [connection signal="screen_exited" from="Ball/VisibleOnScreenNotifier2D" to="Ball" method="_on_screen_exited"]
